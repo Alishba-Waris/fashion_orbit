@@ -1,0 +1,13 @@
+.nav_space{
+    justify-content: space-around;
+  }
+  
+  .bg_clr{
+    background-color: #011e30;
+  }
+  
+.logo_name{
+    width: 450px;
+    font-size: 30px;
+}  
+  
