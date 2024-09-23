@@ -10,4 +10,18 @@
     width: 450px;
     font-size: 30px;
 }  
+
+.navbar-dark .navbar-brand {
+    color: gold;
+}
+
+.nav_elements{
+    font-size: x-large;
+}
+
+.nav_items li a:hover{
+    color: gold;
+}
+
+
   
