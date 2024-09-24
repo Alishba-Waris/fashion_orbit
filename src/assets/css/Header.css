@@ -19,7 +19,7 @@
     font-size: x-large;
 }
 
-.nav_items li a:hover{
+.nav_elements li .nav_items .nav_link:hover{
     color: gold;
 }
 

@@ -1,14 +1,13 @@
 
 .new_arrival{
-    margin-top: 5%;
-    margin-left: 20%;
+    margin: 5% 5% 2% 15%;
     font-family: auto;
 }
 
 .line{
-    margin-top: 1%;
-    margin-left: 20%;
-    width: 60%;
+   
+    margin:auto;
+    width: 75%;
     border: 1px solid black;
 }
 

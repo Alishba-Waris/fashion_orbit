@@ -1,0 +1,67 @@
+
+.tou_container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.tou_title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #5c5e60;
+}
+
+.tou_h {
+    font-size: 22px;
+    color: #5c5e60;
+    margin-top: 30px;
+    border-bottom: 2px solid #5c5e60;
+    padding-bottom: 10px;
+}
+
+.tou_p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: rgb(121, 121, 121);
+}
+
+.tou_IS {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.tou_IS li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: rgb(121, 121, 121);
+}
+
+.tou {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+.tou li {
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.tou li a {
+    color: #a2793a;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.tou li a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+

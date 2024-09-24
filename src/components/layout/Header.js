@@ -23,7 +23,7 @@ function App() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
               <ul className="navbar-nav nav_elements">
-                <li className="nav-item">
+                <li className="nav-item header_li">
                   <NavLink activeClassName="active" className="nav-link " to="/">Home</NavLink>
                 </li>
                 <li className="nav-item">

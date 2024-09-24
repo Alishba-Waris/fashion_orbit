@@ -15,14 +15,6 @@ const Footer = () => {
                     <div className="row">
                         <div className="footer-column">
                             <h4>Links</h4>
-                            {/* <ul>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/">Clothes</a></li>
-                                <li><a href="/">Shoes</a></li>
-                                <li><a href="/">Bags</a></li>
-                                <li><a href="/">About us</a></li>
-                                <li><a href="/">Contact us</a></li>
-                            </ul> */}
 
                             <ul className="navbar-nav nav_elements">
                                 <li className="nav-item">
@@ -37,17 +29,28 @@ const Footer = () => {
                                 <li className="nav-item">
                                     <NavLink activeClassName="active" className="nav-link " to="/bags">Bags</NavLink>
                                 </li>
-                                
+
                             </ul>
                         </div>
 
                         <div className="footer-column">
                             <h4>Customer Care</h4>
-                            <ul>
-                                <li><a href=".././pages/AboutUs.js">About us</a></li>
-                                <li><a href="../pages/ContactUs.js">Contact us</a></li>
-                                <li><a href="/">Terms od Use</a></li>
-                                <li><a href="/">Privacy Policy</a></li>
+                            <ul className='navbar-nav nav-elements'>
+                                <li className="nav-item">
+                                    <NavLink activeClassName="active" className="nav-link " to="/faqs">FAQs</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink activeClassName="active" className="nav-link " to="/about_us">About us</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink activeClassName="active" className="nav-link " to="/contact_us">Contact us</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink activeClassName="active" className="nav-link " to="/privacy_policy">Privacy Policy</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink activeClassName="active" className="nav-link " to="/terms_of_use">Terms of Use</NavLink>
+                                </li>
                             </ul>
                         </div>
 
@@ -64,10 +67,10 @@ const Footer = () => {
 
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; 2024 Company, Inc. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} <i>FashionOrbit</i>, Inc. All rights reserved.</p>
                     <div className="social-icons">
-                        <a href="/"><FaTwitter /></a>
-                        <a href="/"><FaInstagram /></a>
+                        <a className='twit' href="/"><FaTwitter /></a>
+                        <a className='insta' href="/"><FaInstagram /></a>
                         <a href="/"><FaFacebook /></a>
                     </div>
                 </div>
