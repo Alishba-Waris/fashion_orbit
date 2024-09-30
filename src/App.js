@@ -9,6 +9,8 @@ import ContactUs from "./components/pages/ContactUs";
 import TermsofUse from "./components/pages/TermsofUse";
 import Faqs from "./components/pages/Faqs";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
+import Products from './components/Products';
+import ProductDetails from './components/ProductDetails';
 
 import Layout from './components/layout/Layout';
 
@@ -28,6 +30,8 @@ const App = () => {
             <Route path='/terms_of_use' element={<TermsofUse/>}/>
             <Route path='/faqs' element={<Faqs/>}/>
             <Route path='/privacy_policy' element= {<PrivacyPolicy/>}/>
+            <Route path='product_details' element= {<Products/>}/>
+            <Route path='product_details/:id' element= {<ProductDetails/>}/>
           </Routes>
         </Layout>
       </BrowserRouter>
