@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../assets/css/Footer.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -37,10 +37,10 @@ const Footer = () => {
                             <h4>Customer Care</h4>
                             <ul className='navbar-nav nav-elements'>
                                 <li className="nav-item">
-                                    <NavLink activeClassName="active" className="nav-link " to="/faqs">FAQs</NavLink>
+                                    <Link activeClassName="active" className="nav-link " to="/faqs">FAQs</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink activeClassName="active" className="nav-link " to="/about_us">About us</NavLink>
+                                    <Link activeClassName="active" className="nav-link " to="/about_us">About us</Link>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink activeClassName="active" className="nav-link " to="/contact_us">Contact us</NavLink>
@@ -69,9 +69,9 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <p>&copy; {new Date().getFullYear()} <i>FashionOrbit</i>, Inc. All rights reserved.</p>
                     <div className="social-icons">
-                        <a className='twit' href="/"><FaTwitter /></a>
-                        <a className='insta' href="/"><FaInstagram /></a>
-                        <a href="/"><FaFacebook /></a>
+                        <a className='twit' href="/https://x.com/fashion?lang=en"><FaTwitter /></a>
+                        <a className='insta' href="/https://www.instagram.com/orbit.vtg/git"><FaInstagram /></a>
+                        <a href="/https://www.facebook.com/fashionorbitbd/"><FaFacebook /></a>
                     </div>
                 </div>
             </footer>
