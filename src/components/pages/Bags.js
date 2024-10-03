@@ -1,13 +1,16 @@
 import React from 'react';
-import { bagsProducts } from '../Products'; 
+import  allProducts from '../allProducts'; 
 import ProductCard from '../ProductCard'; 
 
 const Bags = () => {
   return (
     <>
-      <h2>Foot Wear</h2>
+     <div className="new_arrival_section">
+        <h2 className="new_arrival">Bags</h2>
+        <div className="line"></div>
+      </div>
       <div className="row row-cols-1 row-cols-md-3 g-4 w-75 m-auto">
-        {bagsProducts.map(product => (
+        {allProducts.bagsProducts.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
