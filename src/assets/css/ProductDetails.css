@@ -1,0 +1,45 @@
+.p_details{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.p_clr{
+    color: #696969;
+}
+
+.q_btn{
+    border: none;
+    background-color: white;
+}
+
+.chart{
+    margin-top: 20px;
+}
+
+.q_cart{
+    margin-top: 50px;
+}
+
+.detailed_img{
+    width: 35%; 
+}
+
+.shoeSize{
+    border-radius: 50%;
+    padding: 8px;
+    margin: 8px;
+}
+
+.container.p_details {
+    padding: 20px;
+  }
+  
+  .clothSize{
+    margin: 8px;
+    padding: 8px;
+  }
+
+
+ 
+  
