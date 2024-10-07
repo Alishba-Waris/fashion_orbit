@@ -1,11 +1,12 @@
 import React from "react";
+import "../assets/css/productCard.css"
 import { Link } from "react-router-dom";
 
 
 const ProductCard = ({ product }) => {
   return (
     <div className="col">
-      <div className="card h-100">
+      <div className="card h-100 ">
         <img
           src={product.image}
           className="card-img-top"

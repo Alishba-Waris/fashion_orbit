@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import allProducts from "./allProducts";
+import { useDispatch } from "react-redux";
+import { addToCart } from "./Redux/cartSlice";
 import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(null); // For tracking selected size
   const { id } = useParams();
-
+  const dispatch = useDispatch();
   const allProductsArray = Object.values(allProducts).flat();
   const product = allProductsArray.find((p) => p.id === parseInt(id));
 
@@ -34,9 +37,21 @@ const ProductDetails = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
+  const handleAddToCart = () => {
+    if (selectedSize) {
+      dispatch(addToCart({ product, quantity, size: selectedSize }));
+    } else {
+      alert("Please select a size.");
+    }
+  };
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
   return (
-    <div className={`container p_details ${productCategory}-page`}>
-      <div className={`card h-100 detailed_img ${productCategory}-img`}>
+    <div className={`container p_details`}>
+      <div className={`card h-100 detailed_img`}>
         <img
           src={product.image}
           className="card-img-top"
@@ -60,24 +75,18 @@ const ProductDetails = () => {
                 below.
               </p>
               <div className="chart">
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Small
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Medium
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Large
-                </button>
+                {["Small", "Medium", "Large"].map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    className={`btn btn-outline-success clothSize ${
+                      selectedSize === size ? "active" : ""
+                    }`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
               </div>
             </div>
           </>
@@ -87,31 +96,19 @@ const ProductDetails = () => {
           <>
             <div className="shoe-details">
               <p>These shoes are available in multiple sizes and colors.</p>
-              <div className=" chart">
-                <button
-                  type="button"
-                  className="btn btn-outline-success shoeSize"
-                >
-                  46
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success shoeSize"
-                >
-                  47
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success shoeSize"
-                >
-                  48
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success shoeSize"
-                >
-                  49
-                </button>
+              <div className="chart">
+                {[46, 47, 48, 49].map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    className={`btn btn-outline-success shoeSize ${
+                      selectedSize === size ? "active" : ""
+                    }`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
               </div>
             </div>
           </>
@@ -123,55 +120,18 @@ const ProductDetails = () => {
               <p>This bag is available in various styles and materials.</p>
               <div className="chart">
                 <p className="">Choose Material:</p>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Leather
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Canvas
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Nylon
-                </button>
-              </div>
-            </div>
-          </>
-        )}
-
-        {productCategory === "clothes" && (
-          <>
-            <div className="clothes-details">
-              <p>
-                Available in different sizes and colors. Check the size chart
-                below.
-              </p>
-              <div className="chart">
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Small
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Medium
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-outline-success clothSize"
-                >
-                  Large
-                </button>
+                {["Leather", "Canvas", "Nylon"].map((material) => (
+                  <button
+                    key={material}
+                    type="button"
+                    className={`btn btn-outline-success clothSize ${
+                      selectedSize === material ? "active" : ""
+                    }`}
+                    onClick={() => handleSizeClick(material)}
+                  >
+                    {material}
+                  </button>
+                ))}
               </div>
             </div>
           </>
@@ -198,6 +158,7 @@ const ProductDetails = () => {
             className="btn btn-dark px-4 rounded-pill py-2 q_cart"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            onClick={handleAddToCart}
           >
             ADD TO CART
           </button>
@@ -206,7 +167,6 @@ const ProductDetails = () => {
             id="exampleModal"
             tabindex="-1"
             aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
           >
             <div className="modal-dialog">
               <div className="modal-content">
@@ -224,17 +184,13 @@ const ProductDetails = () => {
                 <div className="modal-body">
                   Item is added to your shopping Cart
                 </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
+                <div className="modal-footer" data-bs-dismiss="modal">
+                  <Link className="btn btn-secondary" to={"/"}>
                     Continue Shopping
-                  </button>
-                  <button type="button" className="btn btn-dark">
+                  </Link>
+                  <Link className="btn btn-dark" to={"/view_cart"}>
                     View Cart
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

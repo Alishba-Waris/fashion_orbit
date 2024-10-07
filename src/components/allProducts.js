@@ -38,13 +38,14 @@ import p_img31 from "../assets/images/p_img31.png";
 import bag from "../assets/images/bag.webp";
 import bag1 from "../assets/images/bag1.webp";
 import bag2 from "../assets/images/bag2.webp";
-import bag3 from "../assets/images/bag3.webp";
-import bag4 from "../assets/images/bag4.webp";
-import bag5 from "../assets/images/bag5.webp";
-import bag6 from "../assets/images/bag6.webp";
-import bag7 from "../assets/images/bag7.webp";
+import bag3 from "../assets/images//bagn1.webp";
+import bag4 from "../assets/images/bagn4.webp";
+import bag5 from "../assets/images/bagn9.jpg";
+import bag6 from "../assets/images/bag5.webp";
+import bag7 from "../assets/images/bagn10.webp";
 import bag8 from "../assets/images/bag8.webp";
-import bag9 from "../assets/images/bag9.webp";
+import bag9 from "../assets/images/bagn2.webp";
+import bag10 from "../assets/images/bagn6.webp";
 
 const Product = [
   {
@@ -230,7 +231,7 @@ const bagsProducts = [
   },
   {
     id: 30,
-    image: bag5,
+    image: bag10,
     price: "Rs. 1,509",
     description: "Trendy Attire at Unbelievable Prices!",
   },
@@ -248,13 +249,13 @@ const bagsProducts = [
   },
   {
     id: 33,
-    image: bag9,
+    image: bag5,
     price: "Rs. 1,509",
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 34,
-    image: bag5,
+    image: bag9,
     price: "Rs. 1,299",
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
