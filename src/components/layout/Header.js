@@ -77,17 +77,14 @@ function App() {
         </nav>
         <nav className="navbar navbar-light ">
           <div className="container-fluid">
-            <a className="acc_icon" href="/">
-              <VscAccount />
-            </a>
             <nav className="navbar">
               <div className="container">
-                {/* <NavLink className="navbar-brand" to="/view_cart">
-                <img src={logo} alt="" width="65" height="45" />
-              </NavLink> */}
                 <NavLink className="navbar-brand" to="/view_cart">
                   <img className="cart_img" src={logo} alt="cart" />
                 </NavLink>
+                <a className="acc_icon" href="/signup">
+                  <VscAccount />
+                </a>
               </div>
             </nav>
           </div>
