@@ -11,6 +11,7 @@ import Faqs from "./components/pages/Faqs";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import ProductDetails from "./components/ProductDetails";
 import ViewCart from "./components/ViewCart";
+import Checkout from "./components/Checkout";
 
 
 import Layout from "./components/layout/Layout";
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="product_details/:id" element={<ProductDetails />} />
             <Route path="shoe_details/:id" element={<shoeDetails />} />
             <Route path="/view_cart" element={<ViewCart/>} />
+            <Route path="/checkout" element={<Checkout/>} />
           </Routes>
         </Layout>
       </BrowserRouter>
