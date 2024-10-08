@@ -12,7 +12,8 @@ import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import ProductDetails from "./components/ProductDetails";
 import ViewCart from "./components/ViewCart";
 import Checkout from "./components/Checkout";
-
+import SignUp from "./components/account/SignUp"
+import Login from "./components/account/Login";
 
 import Layout from "./components/layout/Layout";
 
@@ -36,6 +37,9 @@ const App = () => {
             <Route path="shoe_details/:id" element={<shoeDetails />} />
             <Route path="/view_cart" element={<ViewCart/>} />
             <Route path="/checkout" element={<Checkout/>} />
+            <Route path="/signup" element={<SignUp/>}/>
+            <Route path="/login" element={<Login/>}/>
+
           </Routes>
         </Layout>
       </BrowserRouter>
