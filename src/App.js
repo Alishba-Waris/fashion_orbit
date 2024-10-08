@@ -33,7 +33,7 @@ const App = () => {
             <Route path="/product_details" element={<allProducts/>} />
             <Route path="product_details/:id" element={<ProductDetails />} />
             <Route path="shoe_details/:id" element={<shoeDetails />} />
-            <Route path="/view_cart" element={<ViewCart/>}/>
+            <Route path="/view_cart" element={<ViewCart/>} />
           </Routes>
         </Layout>
       </BrowserRouter>

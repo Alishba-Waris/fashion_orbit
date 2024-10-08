@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import allProducts from "./allProducts";
 import { useDispatch } from "react-redux";
@@ -7,15 +7,11 @@ import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState(null); // For tracking selected size
+  const [selectedSize, setSelectedSize] = useState(null);
   const { id } = useParams();
   const dispatch = useDispatch();
   const allProductsArray = Object.values(allProducts).flat();
   const product = allProductsArray.find((p) => p.id === parseInt(id));
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
 
   const productCategory = (() => {
     if (allProducts.Product.some((p) => p.id === product.id))
@@ -29,6 +25,23 @@ const ProductDetails = () => {
     return "general";
   })();
 
+  useEffect(() => {
+    if (productCategory === "new_arrival"){
+        setSelectedSize("Small");
+    }else if (productCategory === "clothes") {
+      setSelectedSize("Small"); 
+    } else if (productCategory === "shoes") {
+      setSelectedSize(46); 
+    } else if (productCategory === "bags") {
+      setSelectedSize("Leather"); 
+    }
+  }, [productCategory]);
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
+
+
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -38,11 +51,7 @@ const ProductDetails = () => {
   };
 
   const handleAddToCart = () => {
-    if (selectedSize) {
       dispatch(addToCart({ product, quantity, size: selectedSize }));
-    } else {
-      alert("Please select a size.");
-    }
   };
 
   const handleSizeClick = (size) => {
@@ -64,10 +73,35 @@ const ProductDetails = () => {
           <h5>{product.description}</h5>
         </div>
         <div className="mt-5 p_clr">
-          <h4>{product.price}</h4>
+          <h4>Rs.{product.price}</h4>
         </div>
 
         {productCategory === "new_arrival" && (
+          <>
+            <div className="clothes-details">
+              <p>
+                Available in different sizes and colors. Check the size chart
+                below.
+              </p>
+              <div className="chart">
+                {["Small", "Medium", "Large"].map((size) => (
+                  <button
+                    key={size}
+                    type="button"
+                    className={`btn btn-outline-success clothSize ${
+                      selectedSize === size ? "active" : ""
+                    }`}
+                    onClick={() => handleSizeClick(size)}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
+
+        {productCategory === "clothes" && (
           <>
             <div className="clothes-details">
               <p>

@@ -23,5 +23,27 @@
     color: gold;
 }
 
+.acc_icon {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    text-decoration: none;
+}
 
-  
+.acc_icon:hover {
+    color: gold;  
+}
+
+.cart_img {
+    width: 65px;   
+    height: 45px;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.cart_img:hover {
+    transform: scale(1.1); 
+    cursor: pointer;       
+}
+
+
