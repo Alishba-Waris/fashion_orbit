@@ -38,85 +38,86 @@ import p_img31 from "../assets/images/p_img31.png";
 import bag from "../assets/images/bag.webp";
 import bag1 from "../assets/images/bag1.webp";
 import bag2 from "../assets/images/bag2.webp";
-import bag3 from "../assets/images/bag3.webp";
-import bag4 from "../assets/images/bag4.webp";
-import bag5 from "../assets/images/bag5.webp";
-import bag6 from "../assets/images/bag6.webp";
-import bag7 from "../assets/images/bag7.webp";
+import bag3 from "../assets/images//bagn1.webp";
+import bag4 from "../assets/images/bagn4.webp";
+import bag5 from "../assets/images/bagn9.jpg";
+import bag6 from "../assets/images/bag5.webp";
+import bag7 from "../assets/images/bagn10.webp";
 import bag8 from "../assets/images/bag8.webp";
-import bag9 from "../assets/images/bag9.webp";
+import bag9 from "../assets/images/bagn2.webp";
+import bag10 from "../assets/images/bagn6.webp";
 
 const Product = [
   {
     id: 1,
     image: new_arrival1,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 2,
     image: new_arrival2,
-    price: "Rs. 1,500",
+    price: 1500,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 3,
     image: new_arrival3,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 4,
     image: new_arrival10,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 5,
     image: new_arrival11,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 6,
     image: new_arrival12,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 7,
     image: new_arrival7,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 8,
     image: new_arrival8,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 9,
     image: new_arrival9,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 10,
     image: new_arrival6,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 11,
     image: new_arrival5,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 12,
     image: new_arrival4,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
 ];
@@ -126,73 +127,73 @@ const shoesProducts = [
   {
     id: 13,
     image: shoe1,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 14,
     image: shoe10,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 15,
     image: shoe3,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 16,
     image: shoe2,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 17,
     image: shoe4,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 18,
     image: shoe5,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 19,
     image: shoe9,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 20,
     image: shoe8,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 21,
     image: shoe7,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 22,
     image: shoe6,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 23,
     image: shoe10,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 24,
     image: shoe3,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
 ];
@@ -201,73 +202,73 @@ const bagsProducts = [
   {
     id: 25,
     image: bag,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 26,
     image: bag1,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 27,
     image: bag4,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 28,
     image: bag2,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 29,
     image: bag3,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 30,
-    image: bag5,
-    price: "Rs. 1,509",
+    image: bag10,
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 31,
     image: bag8,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 32,
     image: bag6,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 33,
-    image: bag9,
-    price: "Rs. 1,509",
+    image: bag5,
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 34,
-    image: bag5,
-    price: "Rs. 1,299",
+    image: bag9,
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 35,
     image: bag4,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 36,
     image: bag7,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
 ];
@@ -276,73 +277,73 @@ const clothesProducts = [
   {
     id: 37,
     image: p_img39,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 38,
     image: p_img16,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 39,
     image: p_img20,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 40,
     image: p_img22,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 41,
     image: p_img19,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 42,
     image: p_img26,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 43,
     image: p_img27,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 44,
     image: p_img28,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 45,
     image: p_img29,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
   {
     id: 46,
     image: p_img31,
-    price: "Rs. 1,299",
+    price: 1299,
     description: "Find The Perfect Style at Unbelievable Prices!",
   },
   {
     id: 47,
     image: p_img32,
-    price: "Rs. 1,500",
+    price: 1509,
     description: "Stylish Collection for Summer!",
   },
   {
     id: 48,
     image: p_img38,
-    price: "Rs. 1,509",
+    price: 1509,
     description: "Trendy Attire at Unbelievable Prices!",
   },
 ];

@@ -10,6 +10,7 @@ import TermsofUse from "./components/pages/TermsofUse";
 import Faqs from "./components/pages/Faqs";
 import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import ProductDetails from "./components/ProductDetails";
+import ViewCart from "./components/ViewCart";
 
 
 import Layout from "./components/layout/Layout";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/product_details" element={<allProducts/>} />
             <Route path="product_details/:id" element={<ProductDetails />} />
             <Route path="shoe_details/:id" element={<shoeDetails />} />
+            <Route path="/view_cart" element={<ViewCart/>} />
           </Routes>
         </Layout>
       </BrowserRouter>
