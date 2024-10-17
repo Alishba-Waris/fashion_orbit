@@ -12,7 +12,7 @@ import PrivacyPolicy from "./components/pages/PrivacyPolicy";
 import ProductDetails from "./components/ProductDetails";
 import ViewCart from "./components/ViewCart";
 import Checkout from "./components/Checkout";
-import SignUp from "./components/account/SignUp"
+import SignUp from "./components/account/SignUp";
 import Login from "./components/account/Login";
 
 import Layout from "./components/layout/Layout";

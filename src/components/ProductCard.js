@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/css/productCard.css"
+import "../assets/css/ProductCard.css"
 import { Link } from "react-router-dom";
 
 
@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
       <div className="card h-100 ">
         <img
           src={product.image}
-          className="card-img-top"
+          className="card-img-size"
           alt={product.description}
         />
         <div className="card-body">

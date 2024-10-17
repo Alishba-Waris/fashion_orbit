@@ -7,16 +7,24 @@ function App() {
   return (
     <>
       <nav className="navbar navbar-dark nav_space bg_clr">
+        <NavLink className="navbar-brand logo_name" to="/">
+          FashionOrbit
+        </NavLink>
         <nav className="navbar navbar-expand-lg ">
           <div className="container-fluid">
-            <NavLink className="navbar-brand logo_name" to="/">
-              FashionOrbit
-            </NavLink>
-            {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
               <span className="navbar-toggler-icon"></span>
-            </button> */}
+            </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul className="navbar-nav nav_elements">
+              <ul className="navbar-nav nav_elements head_elements">
                 <li className="nav-item header_li">
                   <NavLink
                     activeClassName="active"
@@ -71,22 +79,24 @@ function App() {
                     Contact_us
                   </NavLink>
                 </li>
+                <li>
+                <nav className="navbar navbar-light ">
+                  <div className="container-fluid">
+                    <nav className="navbar icons">
+                      <div className="container">
+                        <NavLink className="navbar-brand" to="/view_cart">
+                          <img className="cart_img" src={logo} alt="cart" />
+                        </NavLink>
+                        <a className="acc_icon" href="/signup">
+                          <VscAccount />
+                        </a>
+                      </div>
+                    </nav>
+                  </div>
+                </nav>
+                </li>
               </ul>
             </div>
-          </div>
-        </nav>
-        <nav className="navbar navbar-light ">
-          <div className="container-fluid">
-            <nav className="navbar">
-              <div className="container">
-                <NavLink className="navbar-brand" to="/view_cart">
-                  <img className="cart_img" src={logo} alt="cart" />
-                </NavLink>
-                <a className="acc_icon" href="/signup">
-                  <VscAccount />
-                </a>
-              </div>
-            </nav>
           </div>
         </nav>
       </nav>
@@ -95,3 +105,4 @@ function App() {
 }
 
 export default App;
+

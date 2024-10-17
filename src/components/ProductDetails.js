@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import allProducts from "./allProducts";
 import { useDispatch } from "react-redux";
-import { addToCart } from "./Redux/cartSlice";
+import { addToCart } from "./redux/CartSlice";
 import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
@@ -68,7 +68,7 @@ const ProductDetails = () => {
         />
       </div>
 
-      <div>
+      <div className="p_detail_resp">
         <div>
           <h5>{product.description}</h5>
         </div>

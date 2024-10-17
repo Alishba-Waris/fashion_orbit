@@ -1,49 +1,121 @@
-.nav_space{
+.nav_space {
     justify-content: space-around;
   }
   
-  .bg_clr{
+  .bg_clr {
     background-color: #011e30;
   }
-  
-.logo_name{
-    width: 450px;
+/* 
+  .icons{
+    margin-left: 15rem;
+  } */
+
+  .navbar-nav .nav-item .nav-link {
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.1s ease;
+  }
+  .logo_name {
     font-size: 30px;
-}  
-
-.navbar-dark .navbar-brand {
+  }
+  
+  .navbar-dark .navbar-brand {
     color: gold;
-}
-
-.nav_elements{
+  }
+  
+  .nav_elements {
     font-size: x-large;
-}
+  }
+  .head_elements li{
+    margin: auto;
+  }  
 
-.nav_elements li .nav_items .nav_link:hover{
+  .nav_elements li .nav_item .nav_link:hover {
     color: gold;
-}
-
-.acc_icon {
+  }
+  
+  .acc_icon {
     color: white;
     font-size: 28px;
     margin-bottom: 10px;
     margin-right: 20px;
     text-decoration: none;
-}
-
-.acc_icon:hover {
-    color: gold;  
-}
-
-.cart_img {
-    width: 65px;   
+  }
+  
+  .acc_icon:hover {
+    color: gold;
+  }
+  
+  .cart_img {
+    width: 65px;
     height: 45px;
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .cart_img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  @media ( min-width: 1450px){
+    .icons{
+      margin-left: 15rem;
+    }
+  }
+
+  @media ( max-width: 1000px){
+    .icons{
+      margin-left: 0px;
+    }
+  }
+
+  @media ( max-width: 320px){
+    .container-fluid{
+      padding-left: 0px;
+      justify-content: unset;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav_elements {
+      font-size: large;
+    }
+  
+    .nav_space {
+      flex-direction: column;
+    }
+  
+    .navbar {
+      justify-content: space-between;
+    }
+  
+    .acc_icon {
+      margin-right: 10px;
+    }
+  
+    .cart_img {
+      width: 50px;
+      height: 35px;
+    }
+  
+    .logo_name {
+      font-size: 20px;
+    }
+  
+    .acc_icon, .cart_img {
+      display: none;
+    }
+  
+    .navbar .container-fluid .cart_img,
+    .navbar .container-fluid .acc_icon {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 769px) {
+  }
+  @media (max-width: 768px) {
+    .nav_space {
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }
-
-.cart_img:hover {
-    transform: scale(1.1); 
-    cursor: pointer;       
-}
-
-
