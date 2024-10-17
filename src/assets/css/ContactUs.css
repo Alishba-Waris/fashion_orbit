@@ -1,18 +1,18 @@
 
 .contact-us-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     padding: 50px 100px;
     font-family: Arial, sans-serif;
 }
 
 .form-container {
-    width: 45%;
+    width: 50%;
 }
 
 .form-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -22,17 +22,17 @@
 }
 
 .contact-form label {
-    font-size: 14px;
+    font-size: 16px;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #e0e0e0;
-    font-size: 14px;
+    border: 1px solid #a09f9f;
+    font-size: 18px;
 }
 
 .contact-form textarea {
@@ -42,7 +42,7 @@
 
 .send-button {
     background-color: transparent;
-    border: 2px solid black;
+    border: 2px solid rgb(127, 124, 124);
     padding: 10px 30px;
     font-size: 14px;
     cursor: pointer;
@@ -55,18 +55,18 @@
 }
 
 .contact-info {
-    width: 20%;
+    width: 40%;
 }
 
 .info-title {
     margin-top: 10%;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .contact-info p {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
@@ -80,6 +80,70 @@
     color: red;
 }
 
-.contact_us_div{
+.contact_us_div {
     margin-top: 20%;
+}
+
+@media (max-width: 1024px) {
+    .contact-us-container {
+        padding: 40px 50px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-container {
+        width: 80%;
+        margin-bottom: 40px;
+    }
+
+    .contact-info {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-us-container {
+        padding: 20px;
+    }
+
+    .form-container, .contact-info {
+        width: 100%;
+    }
+
+    .form-title, .info-title {
+        font-size: 20px;
+    }
+
+    .contact-info p, .contact-form label, .contact-form input, .contact-form textarea {
+        font-size: 12px;
+    }
+
+    .send-button {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-us-container {
+        padding: 10px;
+    }
+
+    .form-container, .contact-info {
+        width: 100%;
+    }
+
+    .form-title, .info-title {
+        font-size: 18px;
+    }
+
+    .contact-info p, .contact-form label, .contact-form input, .contact-form textarea {
+        font-size: 12px;
+    }
+
+    .send-button {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
 }

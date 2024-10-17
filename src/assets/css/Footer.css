@@ -125,3 +125,8 @@
     color: #007bff;
 }
 
+@media (max-width: 500px) {
+    .social-icons {
+        display: contents;
+    }
+}

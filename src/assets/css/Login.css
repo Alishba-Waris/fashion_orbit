@@ -51,11 +51,32 @@
     background-color: #0056b3; 
   }
   
+  .eye_icon{
+    cursor: pointer;
+  }
+
   .error-message {
     color: red;
     font-size: 0.9rem;
     margin-top: -10px;
     margin-bottom: 10px;
+  }
+
+  .password-field {
+    position: relative;
+  }
+  
+  .password-field input {
+    width: 100%;
+    padding-right: 30px; 
+  }
+  
+  .password-field span {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
   }
   
   @media (max-width: 576px) {
