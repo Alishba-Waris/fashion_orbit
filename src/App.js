@@ -14,6 +14,7 @@ import ViewCart from "./components/ViewCart";
 import Checkout from "./components/Checkout";
 import SignUp from "./components/account/SignUp";
 import Login from "./components/account/Login";
+import UserAccount from "./components/pages/UserAccount";
 
 import Layout from "./components/layout/Layout";
 
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/checkout" element={<Checkout/>} />
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/user_account/:userId" element={<UserAccount/>}/>
 
           </Routes>
         </Layout>

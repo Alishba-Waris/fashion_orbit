@@ -5,10 +5,6 @@
   .bg_clr {
     background-color: #011e30;
   }
-/* 
-  .icons{
-    margin-left: 15rem;
-  } */
 
   .navbar-nav .nav-item .nav-link {
     margin-right: 15px;
@@ -33,15 +29,20 @@
   .nav_elements li .nav_item .nav_link:hover {
     color: gold;
   }
-  
-  .acc_icon {
-    color: white;
-    font-size: 28px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    text-decoration: none;
+
+   .acc_icon {
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0; 
   }
   
+  .acc_icon svg {
+    width: 36px; 
+    height: 30px; 
+  }
+
   .acc_icon:hover {
     color: gold;
   }

@@ -1,12 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { useState } from "react"; 
+import { useState } from "react";
 import "../assets/css/Checkout.css";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const onSubmit = (data) => {
@@ -17,14 +22,23 @@ const Checkout = () => {
   return (
     <>
       {isSubmitted && (
-        <div aria-live="polite" aria-atomic="true" className="d-flex justify-content-center align-items-center w-100">
-          <div className="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          className="d-flex justify-content-center align-items-center w-100"
+        >
+          <div
+            className="toast show"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
             <div className="toast-header">
               <strong className="me-auto">Order Confirmation</strong>
               <small className="text-muted">Just now</small>
-              <button 
-                type="button" 
-                className="btn-close" 
+              <button
+                type="button"
+                className="btn-close"
                 onClick={() => setIsSubmitted(false)}
                 aria-label="Close"
               ></button>
@@ -52,13 +66,25 @@ const Checkout = () => {
             </div>
           ))}
           <div className="total">
-            <p>Total:</p>
-            <p className="total-price">Rs. {cart.totalAmount.toFixed(2)}/-</p>
+            <p className="free_dilevery">Free Home Delivery</p>
+            <p className="total-price">
+              Total: Rs. {cart.totalAmount.toFixed(2)}/-
+            </p>
           </div>
         </div>
         <div className="shipping-info">
           <h2 className="details-heading">Shipping Information</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="input-field"
+              {...register("fullName", { required: "Full name is required" })}
+            />
+            {errors.fullName && (
+              <p className="error-message">{errors.fullName.message}</p>
+            )}
+
             <input
               type="text"
               placeholder="Email"
@@ -71,15 +97,9 @@ const Checkout = () => {
                 },
               })}
             />
-            {errors.email && <p className="error-message">{errors.email.message}</p>}
-
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="input-field"
-              {...register("fullName", { required: "Full name is required" })}
-            />
-            {errors.fullName && <p className="error-message">{errors.fullName.message}</p>}
+            {errors.email && (
+              <p className="error-message">{errors.email.message}</p>
+            )}
 
             <input
               type="text"
@@ -87,7 +107,9 @@ const Checkout = () => {
               className="input-field"
               {...register("address", { required: "Address is required" })}
             />
-            {errors.address && <p className="error-message">{errors.address.message}</p>}
+            {errors.address && (
+              <p className="error-message">{errors.address.message}</p>
+            )}
 
             <input
               type="text"
@@ -95,7 +117,9 @@ const Checkout = () => {
               className="input-field"
               {...register("city", { required: "City is required" })}
             />
-            {errors.city && <p className="error-message">{errors.city.message}</p>}
+            {errors.city && (
+              <p className="error-message">{errors.city.message}</p>
+            )}
 
             <input
               type="text"
@@ -103,7 +127,9 @@ const Checkout = () => {
               className="input-field"
               {...register("country", { required: "Country is required" })}
             />
-            {errors.country && <p className="error-message">{errors.country.message}</p>}
+            {errors.country && (
+              <p className="error-message">{errors.country.message}</p>
+            )}
 
             <input
               type="text"
@@ -117,7 +143,29 @@ const Checkout = () => {
                 },
               })}
             />
-            {errors.postalCode && <p className="error-message">{errors.postalCode.message}</p>}
+            {errors.postalCode && (
+              <p className="error-message">{errors.postalCode.message}</p>
+            )}
+
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="paymentMethod"
+                value="COD"
+                id="flexRadioDefault1"
+                {...register("paymentMethod", {
+                  required: "Select checkbox"
+                })}
+              />
+              <label className="form-check-label" htmlFor="flexRadioDefault1">
+                COD (Cash on Delivery)
+              </label>
+            </div>
+
+            {errors.paymentMethod && (
+              <p className="error-message">{errors.paymentMethod.message}</p>
+            )}
 
             <button type="submit" className="checkout-button">
               Place Order
@@ -130,4 +178,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-

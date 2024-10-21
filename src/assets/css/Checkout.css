@@ -46,6 +46,9 @@
     font-size: 1.2em;
     font-weight: bold;
 }
+.free_dilevery{
+    color:red
+}
 
 .shipping-info {
     margin-top: 20px;
@@ -60,6 +63,7 @@
 }
 
 .checkout-button {
+    margin-top: 30px;
     width: 96%;
     padding: 10px;
     background-color: #28a745;
@@ -78,5 +82,5 @@
 .error-message {
     color: red;
     font-size: 0.9em;
-    margin-top: 0.5em;
+    margin-top: 10px;
   }
