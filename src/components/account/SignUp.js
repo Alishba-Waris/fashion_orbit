@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import "../../assets/css/SignUp.css";
 import { useNavigate } from "react-router-dom";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import axios from "axios";
+import { useDispatch } from "react-redux"; 
+import { setUser } from "../redux/UserSlice";
 
 const SignUp = () => {
   const {
@@ -17,17 +19,11 @@ const SignUp = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [isSignedUp, setIsSignedUp] = useState(false);
+  const [signUpError, setSignUpError] = useState("");
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setIsSignedUp(true);
-    }
-  }, []);
-
-  const password = watch("password");
+  const dispatch = useDispatch(); 
   const navigate = useNavigate();
+  const password = watch("password");
 
   const onSubmit = async (data) => {
     try {
@@ -40,16 +36,21 @@ const SignUp = () => {
           password: data.password,
         }
       );
-
+      dispatch(setUser({ 
+        userId: response.data.user._id, 
+        token: response.data.token 
+      }));
       console.log("User registered successfully:", response.data);
-      if (!response) {
-        <p>User on this email already exists.</p>;
-      }
-
       reset();
-
       navigate("/");
+
     } catch (error) {
+      if (error.response) {
+        setSignUpError("User on this email already exists");
+      } else {
+        setSignUpError("SignUp failed. Please try again.");
+      }
+      console.error("Login failed:", error.response ? error.response.data : error.message);
       console.error(
         "Error during signup:",
         error.response ? error.response.data : error.message
@@ -64,10 +65,6 @@ const SignUp = () => {
   const toggleConfirmPasswordVisibility = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
-
-  if(isSignedUp){
-    navigate('/user_account');
-  }
 
   return (
     <>
@@ -84,10 +81,6 @@ const SignUp = () => {
             name="username"
             {...register("username", {
               required: "Username is required",
-              minLength: {
-                value: 5,
-                message: "Username must be at least 5 characters",
-              },
             })}
           />
           {errors.username && (
@@ -168,7 +161,7 @@ const SignUp = () => {
             <p className="error-message">{errors.confirmPassword.message}</p>
           )}
         </div>
-
+        {signUpError && <p className="error-message">{signUpError}</p>}
         <button type="submit" className="btn btn-primary">
           Sign Up
         </button>

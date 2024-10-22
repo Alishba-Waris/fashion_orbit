@@ -2,17 +2,15 @@ import logo from "../../assets/images/logo.png";
 import { VscAccount } from "react-icons/vsc";
 import "../../assets/css/Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate = useNavigate();
-  const userId = localStorage.getItem('userId');
+  const userId = useSelector((state) => state.user.userId); 
   const isLoggedIn = !!userId;
-  const isSignedUp = !!userId;
 
   const handleUserAccountClick = () => {
     if (isLoggedIn) {
-      navigate(`/user_account/${userId}`);
-    } else if(isSignedUp) {
       navigate(`/user_account/${userId}`);
     } else {
       navigate('/login');

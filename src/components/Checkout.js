@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import "../assets/css/Checkout.css";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
@@ -14,9 +16,39 @@ const Checkout = () => {
   } = useForm();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const onSubmit = (data) => {
-    setIsSubmitted(true);
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      const orderItems = cart.items.map((item) => ({
+        id: item.id,
+        image: item.image,
+        quantity: item.quantity,
+        price: item.price,
+      }));
+debugger
+      console.log(orderItems, ":::::::::::")
+      const response = await axios.post(
+        "http://localhost:5000/api/order/userorder",
+        {
+          items: orderItems,
+          totalAmount: cart.totalAmount,
+          username: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          address: data.address,
+          city: data.city,
+          country: data.country,
+          postalcode: data.postalCode,
+        }
+      );
+      console.log("Order placed successfully:", response.data);
+      setIsSubmitted(true);
+      reset();
+    } catch (error) {
+      console.error(
+        "Error during order placement",
+        error.response ? error.response.data : error.message
+      );
+    }
   };
 
   return (
@@ -103,6 +135,22 @@ const Checkout = () => {
 
             <input
               type="text"
+              placeholder="Phone"
+              className="input-field"
+              {...register("phone", {
+                required: "Phone# is required",
+                minLength: {
+                  value: 11,
+                  message: "Phone# must be 11 digits",
+                },
+              })}
+            />
+            {errors.phone && (
+              <p className="error-message">{errors.phone.message}</p>
+            )}
+
+            <input
+              type="text"
               placeholder="Address"
               className="input-field"
               {...register("address", { required: "Address is required" })}
@@ -155,7 +203,7 @@ const Checkout = () => {
                 value="COD"
                 id="flexRadioDefault1"
                 {...register("paymentMethod", {
-                  required: "Select checkbox"
+                  required: "Select checkbox",
                 })}
               />
               <label className="form-check-label" htmlFor="flexRadioDefault1">
@@ -167,9 +215,44 @@ const Checkout = () => {
               <p className="error-message">{errors.paymentMethod.message}</p>
             )}
 
-            <button type="submit" className="checkout-button">
+            <button
+              type="button"
+              className="btn btn-success px-4 rounded-pill py-2 q_cart"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
               Place Order
             </button>
+            <div
+              className="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+            >
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="exampleModalLabel">
+                      Order Confirmation
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    Your Order has been placed successfully!
+                  </div>
+                  <div className="modal-footer" data-bs-dismiss="modal">
+                    <Link className="btn btn-success" to={"/"}>
+                      Continue Shopping
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </div>
