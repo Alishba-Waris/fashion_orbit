@@ -28,9 +28,10 @@ const Login = () => {
       });
 
       const { user } = response.data; 
-      dispatch(setUser({ userId: user._id, token: response.data.token }));
+      dispatch(setUser({ userId: user._id, token: response.data.token, email: user.email }));
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userId", user._id);
+      // localStorage.setItem("email", user.email);
 
       reset();
       navigate("/"); 

@@ -18,17 +18,18 @@ const Checkout = () => {
 
   const onSubmit = async (data) => {
     try {
-      const orderItems = cart.items.map((item) => ({
+        const imageBaseURL = "http://localhost:3000";
+        const orderItems = cart.items.map((item) => ({
         id: item.id,
-        image: item.image,
+        image: `${imageBaseURL}${item.image}`,
         quantity: item.quantity,
         price: item.price,
       }));
-debugger
       console.log(orderItems, ":::::::::::")
       const response = await axios.post(
         "http://localhost:5000/api/order/userorder",
         {
+          userId: localStorage.getItem("userId"),
           items: orderItems,
           totalAmount: cart.totalAmount,
           username: data.fullName,
@@ -216,7 +217,7 @@ debugger
             )}
 
             <button
-              type="button"
+              type="submit"
               className="btn btn-success px-4 rounded-pill py-2 q_cart"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
