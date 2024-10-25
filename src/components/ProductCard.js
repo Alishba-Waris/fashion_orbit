@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/css/ProductCard.css"
+import "../assets/css/productCard.css"
 import { Link } from "react-router-dom";
 
 

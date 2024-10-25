@@ -1,10 +1,12 @@
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import React, {  useState } from "react";
 import "../../assets/css/SignUp.css";
-import { useNavigate } from 'react-router-dom';
-import { VscEye, VscEyeClosed } from 'react-icons/vsc'; 
-import axios from 'axios'; 
+import { useNavigate } from "react-router-dom";
+import { VscEye, VscEyeClosed } from "react-icons/vsc";
+import axios from "axios";
+import { useDispatch } from "react-redux"; 
+import { setUser } from "../redux/UserSlice";
 
 const SignUp = () => {
   const {
@@ -12,31 +14,47 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
     watch,
-    reset
+    reset,
   } = useForm();
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [signUpError, setSignUpError] = useState("");
 
-  const password = watch("password");
+  const dispatch = useDispatch(); 
   const navigate = useNavigate();
+  const password = watch("password");
 
   const onSubmit = async (data) => {
     try {
       console.log("Form data:", data);
-      const response = await axios.post('http://localhost:5000/api/user/signup', {
-        name: data.username,
-        email: data.email,
-        password: data.password
-      });
-
+      const response = await axios.post(
+        "http://localhost:5000/api/user/signup",
+        {
+          name: data.username,
+          email: data.email,
+          password: data.password,
+        }
+      );
+      dispatch(setUser({ 
+        userId: response.data.user._id, 
+        token: response.data.token 
+      }));
       console.log("User registered successfully:", response.data);
-
       reset();
-
       navigate("/");
+
     } catch (error) {
-      console.error("Error during signup:", error.response ? error.response.data : error.message);
+      if (error.response) {
+        setSignUpError("User on this email already exists");
+      } else {
+        setSignUpError("SignUp failed. Please try again.");
+      }
+      console.error("Login failed:", error.response ? error.response.data : error.message);
+      console.error(
+        "Error during signup:",
+        error.response ? error.response.data : error.message
+      );
     }
   };
 
@@ -63,13 +81,11 @@ const SignUp = () => {
             name="username"
             {...register("username", {
               required: "Username is required",
-              minLength: {
-                value: 5,
-                message: "Username must be at least 5 characters",
-              },
             })}
           />
-          {errors.username && <p className="error-message">{errors.username.message}</p>}
+          {errors.username && (
+            <p className="error-message">{errors.username.message}</p>
+          )}
         </div>
 
         <div className="mb-3">
@@ -88,7 +104,9 @@ const SignUp = () => {
               },
             })}
           />
-          {errors.email && <p className="error-message">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="error-message">{errors.email.message}</p>
+          )}
         </div>
 
         <div className="mb-3 password-container">
@@ -108,11 +126,13 @@ const SignUp = () => {
                 },
               })}
             />
-            <span onClick={togglePasswordVisibility} className='eye_icon'>
+            <span onClick={togglePasswordVisibility} className="eye_icon">
               {showPassword ? <VscEye /> : <VscEyeClosed />}
             </span>
           </div>
-          {errors.password && <p className="error-message">{errors.password.message}</p>}
+          {errors.password && (
+            <p className="error-message">{errors.password.message}</p>
+          )}
         </div>
 
         <div className="mb-3 password-container">
@@ -126,24 +146,37 @@ const SignUp = () => {
               name="confirmPassword"
               {...register("confirmPassword", {
                 required: "Please confirm your password",
-                validate: (value) => value === password || "Passwords do not match",
+                validate: (value) =>
+                  value === password || "Passwords do not match",
               })}
             />
-            <span onClick={toggleConfirmPasswordVisibility} className='eye_icon'>
+            <span
+              onClick={toggleConfirmPasswordVisibility}
+              className="eye_icon"
+            >
               {showConfirmPassword ? <VscEye /> : <VscEyeClosed />}
             </span>
           </div>
-          {errors.confirmPassword && <p className="error-message">{errors.confirmPassword.message}</p>}
+          {errors.confirmPassword && (
+            <p className="error-message">{errors.confirmPassword.message}</p>
+          )}
         </div>
+        {signUpError && <p className="error-message">{signUpError}</p>}
+        <button type="submit" className="btn btn-primary">
+          Sign Up
+        </button>
 
-        <button type="submit" className="btn btn-primary">Sign Up</button>
-
-        <div className='acc_div'>
-          <p>Already have an account? <Link className="login_link" to="/login">Login</Link></p>    
+        <div className="acc_div">
+          <p>
+            Already have an account?{" "}
+            <Link className="login_link" to="/login">
+              Login
+            </Link>
+          </p>
         </div>
       </form>
     </>
   );
-}
+};
 
 export default SignUp;
