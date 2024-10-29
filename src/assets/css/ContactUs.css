@@ -84,6 +84,19 @@
     margin-top: 20%;
 }
 
+.error {
+    color: red;
+    font-size: 0.9em;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+  }
+
+  
+
+
 @media (max-width: 1024px) {
     .contact-us-container {
         padding: 40px 50px;

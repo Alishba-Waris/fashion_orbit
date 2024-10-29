@@ -1,3 +1,4 @@
+
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -31,7 +32,7 @@ const Login = () => {
       dispatch(setUser({ userId: user._id, token: response.data.token, email: user.email }));
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userId", user._id);
-      // localStorage.setItem("email", user.email);
+      localStorage.setItem("email", user.email);
 
       reset();
       navigate("/"); 
