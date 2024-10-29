@@ -1,20 +1,28 @@
+
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { clearCart } from "./redux/CartSlice";
 import { useState } from "react";
 import "../assets/css/Checkout.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [, setIsSubmitted] = useState(false);
+  // const navigate = useNavigate();
+
 
   const onSubmit = async (data) => {
     try {
@@ -42,6 +50,9 @@ const Checkout = () => {
         }
       );
       console.log("Order placed successfully:", response.data);
+      // navigate("/");
+      toast.success('🦄 Order Placed Successfully!')
+      dispatch((clearCart()));
       setIsSubmitted(true);
       reset();
     } catch (error) {
@@ -54,35 +65,7 @@ const Checkout = () => {
 
   return (
     <>
-      {isSubmitted && (
-        <div
-          aria-live="polite"
-          aria-atomic="true"
-          className="d-flex justify-content-center align-items-center w-100"
-        >
-          <div
-            className="toast show"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-          >
-            <div className="toast-header">
-              <strong className="me-auto">Order Confirmation</strong>
-              <small className="text-muted">Just now</small>
-              <button
-                type="button"
-                className="btn-close"
-                onClick={() => setIsSubmitted(false)}
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="toast-body">
-              Your order has been placed successfully!
-            </div>
-          </div>
-        </div>
-      )}
-
+   <ToastContainer />   
       <div className="checkout-container">
         <h1 className="checkout-title">Checkout</h1>
         <div className="checkout-details">
@@ -219,41 +202,10 @@ const Checkout = () => {
             <button
               type="submit"
               className="btn btn-success px-4 rounded-pill py-2 q_cart"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
             >
               Place Order
             </button>
-            <div
-              className="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-            >
-              <div className="modal-dialog">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">
-                      Order Confirmation
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    Your Order has been placed successfully!
-                  </div>
-                  <div className="modal-footer" data-bs-dismiss="modal">
-                    <Link className="btn btn-success" to={"/"}>
-                      Continue Shopping
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
           </form>
         </div>
       </div>
