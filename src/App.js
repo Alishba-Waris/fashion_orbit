@@ -16,7 +16,7 @@ import SignUp from "./components/account/SignUp";
 import Login from "./components/account/Login";
 import UserAccount from "./components/pages/UserAccount";
 import ForgotPassword from "./components/account/ForgotPassword";
-// import ResetPassword from "./components/account/ResetPassword";
+import ResetPassword from "./components/account/ResetPassword";
 import Layout from "./components/layout/Layout";
 
 const App = () => {
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/forgot_password" element={<ForgotPassword/>}/>
-          {/* <Route path="/reset_password" element={<ResetPassword/>}/> */}
+          <Route path="/reset_password" element={<ResetPassword/>}/>
           <Route path="/user_account/:userId" element={<Layout><UserAccount /></Layout>} />
           </Routes>
       </BrowserRouter>

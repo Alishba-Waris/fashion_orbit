@@ -57,14 +57,19 @@ const UserAccount = () => {
 
   return (
     <div className="user-account">
-      <h1>Welcome to Your Account</h1>
+      <div className="acc_head">
+        <h1>Welcome to Your Account</h1>
+       <button onClick={handleLogout} className="btn btn-danger logout-btn">Logout</button>
+       </div>
+       <br/><br/>
       {userId ? (
         <>
           <div className="user-info">
             <p><strong>Name:</strong> {userData.name}</p>
             <p><strong>Email:</strong> {userData.email}</p>
           </div>
-          <h2>Your Orders</h2>
+          <br/>
+          <h2>Your Orders History</h2><br/>
           {orderDetails.length > 0 ? (
             <ul className="order-list">
               {orderDetails.map((order) => (
@@ -89,7 +94,7 @@ const UserAccount = () => {
       ) : (
         <p>You are not logged in</p>
       )}
-      <button onClick={handleLogout} className="btn btn-danger logout-btn">Logout</button>
+      
     </div>
   );
 };
