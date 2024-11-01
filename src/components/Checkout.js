@@ -65,7 +65,7 @@ const Checkout = () => {
 
   return (
     <>
-   <ToastContainer />   
+    <ToastContainer />   
       <div className="checkout-container">
         <h1 className="checkout-title">Checkout</h1>
         <div className="checkout-details">

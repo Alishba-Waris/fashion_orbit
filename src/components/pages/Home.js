@@ -6,7 +6,7 @@ import carosalImg1 from "../../assets/images/WEBSITE-BANNER-WITH-GLASSES_16187a9
 import carosalImg2 from "../../assets/images/WEBSITE-BANNER_072fc028-ca1f-47b8-8d24-e5c2f8adc0b7_1660x.webp";
 import carosalImg3 from "../../assets/images/WEBSITE-BANNER_097c8b89-cddc-415a-bd57-8a4cd5272b75_1660x.webp";
 
-const Home = () => {
+const ProductDetails = () => {
   return (
     <>
       <div
@@ -88,4 +88,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ProductDetails;

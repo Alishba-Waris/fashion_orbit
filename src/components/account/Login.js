@@ -1,12 +1,14 @@
 
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,NavLink, useNavigate } from "react-router-dom";
 import "../../assets/css/Login.css";
 import axios from "axios";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/UserSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const {
@@ -35,6 +37,7 @@ const Login = () => {
       localStorage.setItem("email", user.email);
 
       reset();
+      toast.success('🦄 Successfully Login!');
       navigate("/"); 
 
     } catch (error) {
@@ -52,7 +55,12 @@ const Login = () => {
   };
 
   return (
+    <>
+    <ToastContainer/>
     <form className="form_style" onSubmit={handleSubmit(onSubmit)}>
+      <NavLink className="form_FashionOrbit" to="/">
+          FashionOrbit
+        </NavLink>
       <h1 className="heading">Login</h1>
 
       <div className="mb-3">
@@ -99,6 +107,10 @@ const Login = () => {
       </div>
       {loginError && <p className="error-message">{loginError}</p>}
 
+      <Link className="forgotpassword_link" to="/forgot_password">
+          Forgot Password
+      </Link>
+
       <button type="submit" className="btn btn-primary">
         Login
       </button>
@@ -112,6 +124,7 @@ const Login = () => {
         </p>
       </div>
     </form>
+    </>
   );
 };
 
