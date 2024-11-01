@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import React, {  useState } from "react";
 import "../../assets/css/SignUp.css";
-import { useNavigate } from "react-router-dom";
+import {NavLink, useNavigate } from "react-router-dom";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import axios from "axios";
 import { useDispatch } from "react-redux"; 
@@ -69,6 +69,9 @@ const SignUp = () => {
   return (
     <>
       <form className="form_style" onSubmit={handleSubmit(onSubmit)}>
+      <NavLink className="form_FashionOrbit" to="/">
+          FashionOrbit
+        </NavLink>
         <h1 className="heading">Sign Up</h1>
 
         <div className="mb-3">

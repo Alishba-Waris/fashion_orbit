@@ -15,6 +15,10 @@
   list-style: none; 
   padding: 0; 
 }
+.acc_head{
+  display: flex;
+  justify-content: space-between;
+}
 
 .order-item {
   border: 1px solid #eee; 
@@ -43,8 +47,8 @@
 }
 
 .logout-btn {
-  margin-top: 20px; 
-  width: 100%; 
+  width: 95px;
+  height: 50px;
 }
 
 @media (max-width: 768px) {

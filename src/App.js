@@ -15,35 +15,35 @@ import Checkout from "./components/Checkout";
 import SignUp from "./components/account/SignUp";
 import Login from "./components/account/Login";
 import UserAccount from "./components/pages/UserAccount";
-
+import ForgotPassword from "./components/account/ForgotPassword";
+import ResetPassword from "./components/account/ResetPassword";
 import Layout from "./components/layout/Layout";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/clothes" element={<Clothes />} />
-            <Route path="/shoes" element={<Shoes />} />
-            <Route path="/bags" element={<Bags />} />
-            <Route path="/about_us" element={<AboutUs />} />
-            <Route path="/contact_us" element={<ContactUs />} />
-            <Route path="/terms_of_use" element={<TermsofUse />} />
-            <Route path="/faqs" element={<Faqs />} />
-            <Route path="/privacy_policy" element={<PrivacyPolicy />} />
-            <Route path="/product_details" element={<allProducts/>} />
-            <Route path="product_details/:id" element={<ProductDetails />} />
-            <Route path="shoe_details/:id" element={<shoeDetails />} />
-            <Route path="/view_cart" element={<ViewCart/>} />
-            <Route path="/checkout" element={<Checkout/>} />
-            <Route path="/signup" element={<SignUp/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/user_account/:userId" element={<UserAccount/>}/>
-
+        <Routes>
+          <Route path="/" element={<Layout><Home /></Layout>} />
+          <Route path="/clothes" element={<Layout><Clothes /></Layout>} />
+          <Route path="/shoes" element={<Layout><Shoes /></Layout>} />
+          <Route path="/bags" element={<Layout><Bags /></Layout>} />
+          <Route path="/about_us" element={<Layout><AboutUs /></Layout>} />
+          <Route path="/contact_us" element={<Layout><ContactUs /></Layout>} />
+          <Route path="/terms_of_use" element={<Layout><TermsofUse /></Layout>} />
+          <Route path="/faqs" element={<Layout><Faqs /></Layout>} />
+          <Route path="/privacy_policy" element={<Layout><PrivacyPolicy /></Layout>} />
+          <Route path="/product_details" element={<Layout><allProducts /></Layout>} />
+          <Route path="/product_details/:id" element={<Layout><ProductDetails /></Layout>} />
+          <Route path="/shoe_details/:id" element={<Layout><shoeDetails /></Layout>} />
+          <Route path="/view_cart" element={<Layout><ViewCart /></Layout>} />
+          <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/forgot_password" element={<ForgotPassword/>}/>
+          <Route path="/reset_password" element={<ResetPassword/>}/>
+          <Route path="/user_account/:userId" element={<Layout><UserAccount /></Layout>} />
           </Routes>
-        </Layout>
       </BrowserRouter>
     </>
   );
