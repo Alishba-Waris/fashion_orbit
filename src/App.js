@@ -17,6 +17,7 @@ import Login from "./components/account/Login";
 import UserAccount from "./components/pages/UserAccount";
 import ForgotPassword from "./components/account/ForgotPassword";
 import ResetPassword from "./components/account/ResetPassword";
+import CheckoutDetails from "./components/CheckoutDetails";
 import Layout from "./components/layout/Layout";
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/forgot_password" element={<ForgotPassword/>}/>
           <Route path="/reset_password" element={<ResetPassword/>}/>
           <Route path="/user_account/:userId" element={<Layout><UserAccount /></Layout>} />
+          <Route path="/checkout_details" element={<Layout><CheckoutDetails /></Layout>} />
           </Routes>
       </BrowserRouter>
     </>

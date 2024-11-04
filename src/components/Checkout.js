@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
@@ -6,10 +5,9 @@ import { clearCart } from "./redux/CartSlice";
 import { useState } from "react";
 import "../assets/css/Checkout.css";
 import axios from "axios";
-// import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-// import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const cart = useSelector((state) => state.cart);
@@ -21,19 +19,18 @@ const Checkout = () => {
     formState: { errors },
   } = useForm();
   const [, setIsSubmitted] = useState(false);
-  // const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     try {
-        const imageBaseURL = "http://localhost:3000";
-        const orderItems = cart.items.map((item) => ({
+      const imageBaseURL = "http://localhost:3000";
+      const orderItems = cart.items.map((item) => ({
         id: item.id,
         image: `${imageBaseURL}${item.image}`,
         quantity: item.quantity,
         price: item.price,
       }));
-      console.log(orderItems, ":::::::::::")
+      console.log(orderItems, ":::::::::::");
       const response = await axios.post(
         "http://localhost:5000/api/order/userorder",
         {
@@ -50,12 +47,22 @@ const Checkout = () => {
         }
       );
       console.log("Order placed successfully:", response.data);
-      // navigate("/");
-      toast.success('🦄 Order Placed Successfully!')
-      dispatch((clearCart()));
+      toast.success("🦄 Order Placed Successfully!", {
+        autoClose: 5000,
+        theme: "colored",
+      });
+      dispatch(clearCart());
       setIsSubmitted(true);
       reset();
+      setTimeout(() => {
+        navigate("/checkout_details");
+      }, 4000);
+
     } catch (error) {
+      toast.success("🦄  Error during order placement!", {
+        autoClose: 3000,
+        theme: "colored",
+      });
       console.error(
         "Error during order placement",
         error.response ? error.response.data : error.message
@@ -65,7 +72,7 @@ const Checkout = () => {
 
   return (
     <>
-    <ToastContainer />   
+      <ToastContainer />
       <div className="checkout-container">
         <h1 className="checkout-title">Checkout</h1>
         <div className="checkout-details">
@@ -203,9 +210,8 @@ const Checkout = () => {
               type="submit"
               className="btn btn-success px-4 rounded-pill py-2 q_cart"
             >
-              Place Order
+                Place Order
             </button>
-           
           </form>
         </div>
       </div>
