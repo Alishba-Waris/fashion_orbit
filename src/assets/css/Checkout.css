@@ -77,6 +77,8 @@
 
 .checkout-button:hover {
     background-color: #218838;
+    text-decoration: none;
+    color: white;
 }
 
 .error-message {
@@ -85,4 +87,11 @@
     margin-top: 10px;
   }
 
-  
+.order_link{
+    text-decoration: none;
+    color: white;
+}
+.order_link:hover{
+    text-decoration: none;
+    color: white;
+}
