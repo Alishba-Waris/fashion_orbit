@@ -7,6 +7,8 @@ import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import axios from "axios";
 import { useDispatch } from "react-redux"; 
 import { setUser } from "../redux/UserSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
   const {
@@ -40,9 +42,13 @@ const SignUp = () => {
         userId: response.data.user._id, 
         token: response.data.token 
       }));
-      console.log("User registered successfully:", response.data);
       reset();
-      navigate("/");
+      toast.success('🦄 Signed Up Successfully!', {
+        theme: "colored"
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
 
     } catch (error) {
       if (error.response) {
@@ -68,6 +74,7 @@ const SignUp = () => {
 
   return (
     <>
+    <ToastContainer/>
       <form className="form_style" onSubmit={handleSubmit(onSubmit)}>
       <NavLink className="form_FashionOrbit" to="/">
           FashionOrbit

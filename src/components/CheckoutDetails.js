@@ -72,8 +72,15 @@ const CheckoutDetails = () => {
           <h6 className="total-price" style={{color: "purple"}}>Total: Rs. {recentOrder.totalAmount}</h6>
           <div className="user-info">
             <h3>Checkout Details</h3>
-            <br />
+            <br />         
             <p>
+              <strong>Date: </strong>{new Date(recentOrder.createdAt).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })}
+            </p>
+            <p>     
               <strong>Name:</strong> {recentOrder.username}
             </p>
             <p>

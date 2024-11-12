@@ -56,7 +56,7 @@ const Checkout = () => {
       reset();
       setTimeout(() => {
         navigate("/checkout_details");
-      }, 4000);
+      }, 3000);
 
     } catch (error) {
       toast.success("🦄  Error during order placement!", {

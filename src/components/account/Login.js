@@ -37,8 +37,12 @@ const Login = () => {
       localStorage.setItem("email", user.email);
 
       reset();
-      toast.success('🦄 Successfully Login!');
-      navigate("/"); 
+      toast.success('🦄 Logged In Successfully!', {
+        theme: "colored"
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
 
     } catch (error) {
       if (error.response) {
