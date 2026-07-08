@@ -77,9 +77,9 @@ const UserAccount = () => {
                   <ul className="order-items-list">
                   <p><strong>Items:</strong></p>
                     {order.items.map((item) => (
-                      <li key={item.id} className="order-item-details">
-                        <img src={item.image} alt={item.discription} className="order-item-image" />
-                        <span>{item.name} - Quantity: {item.quantity} - Price: {item.price}/-</span>
+                      <li key={`${item.productId || item.id}-${item.size || ""}`} className="order-item-details">
+                        <img src={item.image} alt={item.description} className="order-item-image" />
+                        <span>{item.name || item.description} - {item.size ? `Option: ${item.size} - ` : ""}Quantity: {item.quantity} - Price: {item.price}/-</span>
                       </li>
                     ))}
                   </ul>

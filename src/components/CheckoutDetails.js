@@ -47,7 +47,7 @@ const CheckoutDetails = () => {
             <h2>Order Details</h2>
             <br />
             {recentOrder.items.map((recentOrder) => (
-              <div key={recentOrder.id} className="cart-item">
+              <div key={`${recentOrder.productId || recentOrder.id}-${recentOrder.size || ""}`} className="cart-item">
                 <img
                   src={recentOrder.image}
                   alt={recentOrder.description}
@@ -57,6 +57,12 @@ const CheckoutDetails = () => {
                   {recentOrder.description}
                 </p>
                 <div className="cart-item-details">
+                  {recentOrder.size && (
+                    <div>
+                      <strong>Option: </strong>
+                      {recentOrder.size}
+                    </div>
+                  )}
                   <div>
                     <strong>Quantity: </strong>
                     {recentOrder.quantity}

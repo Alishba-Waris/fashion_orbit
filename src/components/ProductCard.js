@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 
 const ProductCard = ({ product }) => {
+  const productId = product._id || product.id;
+
   return (
     <div className="col">
       <div className="card h-100 ">
@@ -18,7 +20,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="card-body">
           <Link
-            to={`/product_details/${product.id}`}
+            to={`/product_details/${productId}`}
             className="btn btn-success
             "
           >

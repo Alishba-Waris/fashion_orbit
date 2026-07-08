@@ -33,7 +33,7 @@ const ViewCart = () => {
 
       <div className="cart-items">
         {cart.items.map((item) => (
-          <div key={item.id} className="cart-item">
+          <div key={`${item._id || item.id}-${item.size}`} className="cart-item">
             <img
               src={item.image}
               alt={item.description}

@@ -1,8 +1,17 @@
-import React from "react";
-import allProducts from "../allProducts";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ProductCard from "../ProductCard";
 
 const Clothes = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/api/products?category=clothes")
+      .then((response) => setProducts(response.data))
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+
   return (
     <>
       <div className="new_arrival_section">
@@ -10,8 +19,8 @@ const Clothes = () => {
         <div className="line"></div>
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-4 w-75 m-auto">
-        {allProducts.clothesProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
     </>

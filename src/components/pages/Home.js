@@ -1,12 +1,39 @@
-import React from "react";
-import allProducts from "../allProducts";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import ProductCard from "../ProductCard";
 import "../../assets/css/Home.css";
-import carosalImg1 from "../../assets/images/WEBSITE-BANNER-WITH-GLASSES_16187a9c-4bc0-4dd2-8dc7-edd921e00ecb_1660x.webp";
-import carosalImg2 from "../../assets/images/WEBSITE-BANNER_072fc028-ca1f-47b8-8d24-e5c2f8adc0b7_1660x.webp";
-import carosalImg3 from "../../assets/images/WEBSITE-BANNER_097c8b89-cddc-415a-bd57-8a4cd5272b75_1660x.webp";
 
-const ProductDetails = () => {
+const Home = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    axios
+      .get("http://localhost:5000/api/products?category=new_arrival", {
+        signal: controller.signal,
+      })
+      .then((response) => setProducts(response.data))
+      .catch((error) => {
+        // Ignore cancellations triggered by StrictMode remounts
+        if (error.name === 'CanceledError' || error.message === 'canceled') return;
+        console.error("Error fetching products:", error);
+      });
+
+    return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    axios.get("http://localhost:5000/api/products?category=new_arrival", { signal: controller.signal })
+      .then((response) => setProducts(response.data))
+      .catch((error) => {
+        if (error.name === 'CanceledError' || error.message === 'canceled') return;
+        console.error("Error fetching products:", error);
+      });
+    return () => controller.abort();
+  }, []);
+
   return (
     <>
       <div
@@ -38,13 +65,13 @@ const ProductDetails = () => {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={carosalImg1} className="d-block w-100" alt="Carousel 1" />
+            <img src="/images/WEBSITE-BANNER-WITH-GLASSES_16187a9c-4bc0-4dd2-8dc7-edd921e00ecb_1660x.webp" className="d-block w-100" alt="Carousel 1" />
           </div>
           <div className="carousel-item">
-            <img src={carosalImg2} className="d-block w-100" alt="Carousel 2" />
+            <img src="/images/WEBSITE-BANNER_072fc028-ca1f-47b8-8d24-e5c2f8adc0b7_1660x.webp" className="d-block w-100" alt="Carousel 2" />
           </div>
           <div className="carousel-item">
-            <img src={carosalImg3} className="d-block w-100" alt="Carousel 3" />
+            <img src="/images/WEBSITE-BANNER_097c8b89-cddc-415a-bd57-8a4cd5272b75_1660x.webp" className="d-block w-100" alt="Carousel 3" />
           </div>
         </div>
         <button
@@ -79,8 +106,8 @@ const ProductDetails = () => {
       </div>
 
       <div className="row row-cols-1 row-cols-md-3 g-4 w-75 m-auto">
-        {allProducts.Product.map((product) => (
-          <ProductCard key={product.id} product={product} />
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
         ))}
       </div>
       
@@ -88,4 +115,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default Home;

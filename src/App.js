@@ -34,7 +34,6 @@ const App = () => {
           <Route path="/terms_of_use" element={<Layout><TermsofUse /></Layout>} />
           <Route path="/faqs" element={<Layout><Faqs /></Layout>} />
           <Route path="/privacy_policy" element={<Layout><PrivacyPolicy /></Layout>} />
-          <Route path="/product_details" element={<Layout><allProducts /></Layout>} />
           <Route path="/product_details/:id" element={<Layout><ProductDetails /></Layout>} />
           <Route path="/shoe_details/:id" element={<Layout><shoeDetails /></Layout>} />
           <Route path="/view_cart" element={<Layout><ViewCart /></Layout>} />

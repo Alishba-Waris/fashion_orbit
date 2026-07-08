@@ -25,8 +25,12 @@ const Checkout = () => {
     try {
       const imageBaseURL = "http://localhost:3000";
       const orderItems = cart.items.map((item) => ({
-        id: item.id,
-        image: `${imageBaseURL}${item.image}`,
+        productId: item._id || item.id,
+        id: item._id || item.id,
+        name: item.name,
+        description: item.description,
+        size: item.size,
+        image: item.image?.startsWith("http") ? item.image : `${imageBaseURL}${item.image}`,
         quantity: item.quantity,
         price: item.price,
       }));

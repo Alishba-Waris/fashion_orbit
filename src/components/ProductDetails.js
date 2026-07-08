@@ -1,44 +1,39 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import allProducts from "./allProducts";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./redux/CartSlice";
+import axios from "axios";
 import "../assets/css/ProductDetails.css";
 
 const ProductDetails = () => {
+  const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState(null);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const allProductsArray = Object.values(allProducts).flat();
-  const product = allProductsArray.find((p) => p.id === parseInt(id));
-
-  const productCategory = (() => {
-    if (allProducts.Product.some((p) => p.id === product.id))
-      return "new_arrival";
-    if (allProducts.shoesProducts.some((p) => p.id === product.id))
-      return "shoes";
-    if (allProducts.bagsProducts.some((p) => p.id === product.id))
-      return "bags";
-    if (allProducts.clothesProducts.some((p) => p.id === product.id))
-      return "clothes";
-    return "general";
-  })();
+  const productCategory = product?.category || "general";
 
   useEffect(() => {
-    if (productCategory === "new_arrival"){
-        setSelectedSize("Small");
-    }else if (productCategory === "clothes") {
-      setSelectedSize("Small"); 
+    axios
+      .get(`http://localhost:5000/api/products/${id}`)
+      .then((response) => setProduct(response.data))
+      .catch((error) => console.error("Error fetching product:", error));
+  }, [id]);
+
+  useEffect(() => {
+    if (!product) return;
+
+    if (productCategory === "new_arrival" || productCategory === "clothes") {
+      setSelectedSize(product.sizes?.[0] || "Small");
     } else if (productCategory === "shoes") {
-      setSelectedSize(46); 
+      setSelectedSize(product.sizes?.[0] || "46");
     } else if (productCategory === "bags") {
-      setSelectedSize("Leather"); 
+      setSelectedSize(product.materials?.[0] || "Leather");
     }
-  }, [productCategory]);
+  }, [product, productCategory]);
 
   if (!product) {
-    return <div>Product not found</div>;
+    return <div className="container mt-5">Loading product...</div>;
   }
 
 
@@ -84,7 +79,7 @@ const ProductDetails = () => {
                 below.
               </p>
               <div className="chart">
-                {["Small", "Medium", "Large"].map((size) => (
+                {(product.sizes || ["Small", "Medium", "Large"]).map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -109,7 +104,7 @@ const ProductDetails = () => {
                 below.
               </p>
               <div className="chart">
-                {["Small", "Medium", "Large"].map((size) => (
+                {(product.sizes || ["Small", "Medium", "Large"]).map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -131,7 +126,7 @@ const ProductDetails = () => {
             <div className="shoe-details">
               <p>These shoes are available in multiple sizes and colors.</p>
               <div className="chart">
-                {[46, 47, 48, 49].map((size) => (
+                {(product.sizes || ["46", "47", "48", "49"]).map((size) => (
                   <button
                     key={size}
                     type="button"
@@ -154,7 +149,7 @@ const ProductDetails = () => {
               <p>This bag is available in various styles and materials.</p>
               <div className="chart">
                 <p className="">Choose Material:</p>
-                {["Leather", "Canvas", "Nylon"].map((material) => (
+                {(product.materials || ["Leather", "Canvas", "Nylon"]).map((material) => (
                   <button
                     key={material}
                     type="button"

@@ -1,4 +1,3 @@
-import logo from "../../assets/images/logo.png";
 import { VscAccount } from "react-icons/vsc";
 import "../../assets/css/Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
@@ -74,7 +73,7 @@ const Header = () => {
                       <nav className="navbar icons">
                         <div className="container">
                           <NavLink className="navbar-brand" to="/view_cart">
-                            <img className="cart_img" src={logo} alt="cart" />
+                            <img className="cart_img" src="/images/logo.png" alt="cart" />
                           </NavLink>
                           <button className="acc_icon" onClick={handleUserAccountClick}>
                             <VscAccount />
