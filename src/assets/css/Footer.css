@@ -1,132 +1,144 @@
 .footer {
-    background-color: #f8f9fa;
-    padding: 40px 0;
-    font-family: Arial, sans-serif;
-    border-top: 1px solid #dee2e6;
+  background: linear-gradient(180deg, rgba(2, 54, 99, 0.95), rgba(12, 34, 63, 0.96));
+  color: #d8e0eb;
+  padding: 3.5rem 1rem;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
 }
 
-.row {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.footer .row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .footer-column {
-    flex: 1;
-    min-width: 200px;
-    margin: 0 15px;
+  flex: 1;
+  min-width: 220px;
+  margin: 0;
 }
 
 .footer-column h4 {
-    margin-bottom: 20px;
-    font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer-column p,
+.footer-column ul li {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .footer-column ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-column ul li {
-    margin-bottom: 10px;
+  margin-bottom: 0.9rem;
 }
 
 .footer-column ul li a {
-    color: #6c757d;
-    text-decoration: none;
-    font-size: 16px;
+  color: rgba(248, 250, 252, 0.92);
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 1.8;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.navbar-nav .nav-item .nav-link {
-    color: #6c757d;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.1s ease;
+.footer-column ul li a:hover,
+.footer-column ul li a:focus {
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
-.navbar-nav .nav-item .nav-link:hover {
-    color:gold; 
-}
-
-.navbar-nav .nav-item .active {
-    color: rgb(10, 228, 217); 
-}
-
-.navbar-nav .nav-item .nav-link:active {
-    color: rgb(10, 228, 217); 
+.footer-column ul li a:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 176, 59, 0.25);
 }
 
 .footer-column form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
 }
 
 .footer-column form input {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
+  padding: 0.95rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+}
+
+.footer-column form input::placeholder {
+  color: rgba(248, 250, 252, 0.7);
 }
 
 .footer-column form button {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 0.95rem 1rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #111827;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .footer-column form button:hover {
-    background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(255, 176, 59, 0.24);
 }
 
 .footer-bottom {
-    margin-top: 30px;    
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #dee2e6;
-    padding-top: 20px;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 1.5rem;
 }
 
 .footer-bottom p {
-    margin-left: 20px;
-    color: #6c757d;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-bottom .social-icons {
-    margin-right: 20px;
+  display: flex;
+  gap: 1rem;
 }
 
 .footer-bottom .social-icons a {
-    color: #6c757d;
-    font-size: 20px;
-    margin: 0 10px;
-}
-
-.footer-bottom .social-icons .insta:hover {
-    color: #eb59f0;
-}
-
-.footer-bottom .social-icons .twit:hover {
-    color: #82caeb;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 20px;
+  transition: color 0.2s ease;
 }
 
 .footer-bottom .social-icons a:hover {
-    color: #007bff;
+  color: var(--accent);
 }
 
-@media (max-width: 500px) {
-    .social-icons {
-        display: contents;
-    }
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

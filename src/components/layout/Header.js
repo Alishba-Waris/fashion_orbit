@@ -18,75 +18,65 @@ const Header = () => {
 
   return (
     <>
-      <nav className="navbar navbar-dark nav_space bg_clr">
-        <NavLink className="navbar-brand logo_name" to="/">
-          FashionOrbit
-        </NavLink>
-        <nav className="navbar navbar-expand-lg ">
-          <div className="container-fluid">
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNavDropdown"
-              aria-controls="navbarNavDropdown"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul className="navbar-nav nav_elements head_elements">
-                <li className="nav-item header_li">
-                  <NavLink activeClassName="active" className="nav-link" to="/">
-                    Home
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink activeClassName="active" className="nav-link" to="/shoes">
-                    Shoes
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink activeClassName="active" className="nav-link" to="/clothes">
-                    Clothes
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink activeClassName="active" className="nav-link" to="/bags">
-                    Bags
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink activeClassName="active" className="nav-link" to="/about_us">
-                    About Us
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink activeClassName="active" className="nav-link" to="/contact_us">
-                    Contact Us
-                  </NavLink>
-                </li>
-                <li>
-                  <nav className="navbar navbar-light">
-                    <div className="container-fluid">
-                      <nav className="navbar icons">
-                        <div className="container">
-                          <NavLink className="navbar-brand" to="/view_cart">
-                            <img className="cart_img" src="/images/logo.png" alt="cart" />
-                          </NavLink>
-                          <button className="acc_icon" onClick={handleUserAccountClick}>
-                            <VscAccount />
-                          </button>
-                        </div>
-                      </nav>
-                    </div>
-                  </nav>
-                </li>
-              </ul>
+      <nav className="navbar navbar-expand-lg nav_space bg_clr header-navbar">
+        <div className="container-fluid align-items-center">
+          <NavLink className="navbar-brand logo_name" to="/">
+            FashionOrbit
+          </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul className="navbar-nav ms-auto header-nav">
+              <li className="nav-item header_li">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/">
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/shoes">
+                  Shoes
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/clothes">
+                  Clothes
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/bags">
+                  Bags
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/about_us">
+                  About Us
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')} to="/contact_us">
+                  Contact Us
+                </NavLink>
+              </li>
+            </ul>
+            <div className="header-actions">
+              <NavLink className="cart-link" to="/view_cart">
+                <img className="cart_img" src="/images/logo.png" alt="cart" />
+              </NavLink>
+              <button className="acc_icon" onClick={handleUserAccountClick}>
+                <VscAccount />
+              </button>
             </div>
           </div>
-        </nav>
+        </div>
       </nav>
     </>
   );
