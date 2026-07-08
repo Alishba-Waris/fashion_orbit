@@ -8,26 +8,23 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="col">
-      <div className="card h-100 ">
-        <img
-          src={product.image}
-          className="card-img-size"
-          alt={product.description}
-        />
-        <div className="card-body">
-          <h5 className="card-title">Rs. {product.price}</h5>
-          <p className="card-text">{product.description}</p>
+      <article className="product-card">
+        <div className="product-card-image">
+          <img src={product.image} alt={product.description} />
         </div>
-        <div className="card-body">
-          <Link
-            to={`/product_details/${productId}`}
-            className="btn btn-success
-            "
-          >
-            Shop Now
-          </Link>
+        <div className="product-card-body">
+          <div>
+            <h5 className="product-card-title">Rs. {product.price}</h5>
+            <p className="product-card-text">{product.description}</p>
+          </div>
+          <div className="product-card-footer">
+            <span className="product-price">Rs. {product.price}</span>
+            <Link to={`/product_details/${productId}`} className="product-card-link">
+              Shop Now
+            </Link>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 };
